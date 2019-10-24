@@ -41,8 +41,8 @@ exports.createPages = ({ actions, graphql }) => {
         ),
         // additional data can be passed via context
         context: {
-          id,
-        },
+          id
+        }
       })
     })
 
@@ -65,14 +65,16 @@ exports.createPages = ({ actions, graphql }) => {
         path: tagPath,
         component: path.resolve(`src/templates/tags.js`),
         context: {
-          tag,
-        },
+          tag
+        }
       })
     })
   })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
+  console.log('qqqqqqqqqqqqqqqqq')
+
   const { createNodeField } = actions
   fmImagesToRelative(node) // convert image paths for gatsby images
 
@@ -81,7 +83,24 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value
     })
   }
+}
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  console.log('ffffffffffffffffffff', createNodeField)
+  console.log('rrrrrrrrrrrrrrrrrrrr', node)
+
+  // fmImagesToRelative(node) // convert image paths for gatsby images
+
+  // if (node.internal.type === `MarkdownRemark`) {
+  //   const value = createFilePath({ node, getNode })
+  //   createNodeField({
+  //     name: `slug`,
+  //     node,
+  //     value,
+  //   })
+  // }
 }

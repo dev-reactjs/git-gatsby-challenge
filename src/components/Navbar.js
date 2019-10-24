@@ -8,7 +8,7 @@ const Navbar = class extends React.Component {
     super(props)
     this.state = {
       active: false,
-      navBarActiveClass: '',
+      navBarActiveClass: ''
     }
   }
 
@@ -16,17 +16,17 @@ const Navbar = class extends React.Component {
     // toggle the active boolean in the state
     this.setState(
       {
-        active: !this.state.active,
+        active: !this.state.active
       },
       // after state has been updated,
       () => {
         // set the class in state for the navbar accordingly
         this.state.active
           ? this.setState({
-              navBarActiveClass: 'is-active',
+              navBarActiveClass: 'is-active'
             })
           : this.setState({
-              navBarActiveClass: '',
+              navBarActiveClass: ''
             })
       }
     )
@@ -74,6 +74,9 @@ const Navbar = class extends React.Component {
               </Link>
               <Link className="navbar-item" to="/contact/examples">
                 Form Examples
+              </Link>
+              <Link className="navbar-item" to="/history">
+                History
               </Link>
             </div>
             <div className="navbar-end has-text-centered">
